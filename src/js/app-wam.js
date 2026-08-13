@@ -106,6 +106,8 @@ function initWamCalculator(mountEl) {
 
     const result = WamEngine.calculateWAM(unitsForEngine, calculationMethod, exclusions);
 
+    if (window.MST_Analytics) window.MST_Analytics.trackCalculation("wam", slug);
+
     if (!result.success) {
       // Render errors
       ResultUI.renderErrorsState(resultContainer);

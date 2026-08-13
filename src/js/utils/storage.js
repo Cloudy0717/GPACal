@@ -52,7 +52,7 @@ const Storage = {
 
   saveIntakeYear: function(universitySlug, year) {
     try {
-      localStorage.setItem(mst_intake_, year);
+      localStorage.setItem(mst_intake_\, year);
     } catch (e) {
       console.warn('localStorage not available', e);
     }
@@ -60,7 +60,7 @@ const Storage = {
 
   loadIntakeYear: function(universitySlug) {
     try {
-      return localStorage.getItem(mst_intake_);
+      return localStorage.getItem(mst_intake_\);
     } catch (e) {
       console.warn('localStorage not available', e);
       return null;

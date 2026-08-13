@@ -202,6 +202,8 @@ function initGpaCalculator(mountEl) {
 
     const result = GpaEngine.calculateGPA(coursesForEngine, currentGradingConfig);
 
+    if (window.MST_Analytics) window.MST_Analytics.trackCalculation("gpa", slug);
+
     if (!result.success) {
       ResultUI.renderErrorsState(resultContainer);
       return;
@@ -366,6 +368,8 @@ function initCgpaCalculator(mountEl) {
     }
 
     const result = CgpaEngine.calculateCGPA(semestersForEngine);
+
+    if (window.MST_Analytics) window.MST_Analytics.trackCalculation("cgpa", slug);
 
     if (!result.success) {
       ResultUI.renderErrorsState(resultContainer);

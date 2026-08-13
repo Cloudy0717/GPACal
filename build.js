@@ -155,12 +155,29 @@ function build() {
   const partials = loadPartials();
   const currentYear = new Date().getFullYear().toString();
 
+
+  const GA4_MEASUREMENT_ID = process.env.GA4_MEASUREMENT_ID || '';
+  let googleAnalyticsScript = '';
+  if (GA4_MEASUREMENT_ID) {
+    googleAnalyticsScript = `
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${GA4_MEASUREMENT_ID}', { 'anonymize_ip': true });
+  </script>
+  <script src="${BASE_PATH}/js/analytics.js"></script>`;
+  }
+
   const baseVars = {
     base_path: BASE_PATH,
     current_year: currentYear,
     og_image: SITE_URL + '/assets/favicon.svg',
     nav: renderTemplate(partials.nav || '', { base_path: BASE_PATH }),
     footer: renderTemplate(partials.footer || '', { current_year: currentYear, base_path: BASE_PATH }),
+    google_analytics_script: googleAnalyticsScript,
   };
 
   writeFile(path.join(DIST, 'js', 'university-data.js'), generateUniversityDataBundle(registry));
@@ -209,6 +226,9 @@ function build() {
   copyDir(path.join(SRC, 'css'), path.join(DIST, 'css'));
   copyDir(path.join(SRC, 'assets'), path.join(DIST, 'assets'));
   copyDir(path.join(SRC, 'js'), path.join(DIST, 'js'));
+  if (!GA4_MEASUREMENT_ID) {
+    if (fs.existsSync(path.join(DIST, 'js', 'analytics.js'))) fs.unlinkSync(path.join(DIST, 'js', 'analytics.js'));
+  }
 
   const sitemapUrls = ['/', '/gpa-calculator/', '/cgpa-calculator/', '/wam-calculator/'];
   verified.forEach(u => {
