@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function renderIntakeSection(container, data, slug, onChange) {
   const hasMultipleRules = data.academic_rules && data.academic_rules.length > 1;
-  const savedYear = Storage.loadIntakeYear(slug) || new Date().getFullYear().toString();
+  const savedYear = window.Storage.loadIntakeYear(slug) || new Date().getFullYear().toString();
   
   let html = '';
   if (hasMultipleRules) {
@@ -71,7 +71,7 @@ function renderIntakeSection(container, data, slug, onChange) {
         rule = data.academic_rules[0];
      } else {
         // Year is already a valid date string mapped from the options
-        rule = UniversityLoader.resolveAcademicRule(data, { intakeDate: year });
+        rule = window.UniversityLoader.resolveAcademicRule(data, { intakeDate: year });
      }
      
      if (!rule) {
@@ -95,7 +95,7 @@ function renderIntakeSection(container, data, slug, onChange) {
   
   if (selectEl) {
      selectEl.addEventListener('change', (e) => {
-        Storage.saveIntakeYear(slug, e.target.value);
+        window.Storage.saveIntakeYear(slug, e.target.value);
         updateRule(e.target.value);
      });
   }
@@ -139,7 +139,7 @@ function initGpaCalculator(mountEl) {
 
   const addCourseRow = (initialData = null) => {
     const rowCount = courseList.children.length;
-    const row = CourseRow.createCourseRow(rowCount, currentGradingConfig, initialData);
+    const row = window.CourseRow.createCourseRow(rowCount, currentGradingConfig, initialData);
     
     row.querySelector('.btn-remove').addEventListener('click', () => {
       if (courseList.children.length > 1) {
@@ -163,10 +163,10 @@ function initGpaCalculator(mountEl) {
     let incompleteCount = 0;
     const coursesForEngine = [];
 
-    rows.forEach(row => CourseRow.clearError(row));
+    rows.forEach(row => window.CourseRow.clearError(row));
 
-    const rawData = rows.map(row => CourseRow.getCourseData(row));
-    Storage.saveCalculatorState('gpa', slug, rawData);
+    const rawData = rows.map(row => window.CourseRow.getCourseData(row));
+    window.Storage.saveCalculatorState('gpa', slug, rawData);
 
     rawData.forEach((c, index) => {
       const rowEl = rows[index];
@@ -182,7 +182,7 @@ function initGpaCalculator(mountEl) {
 
       const credits = Number(c.creditsStr);
       if (isNaN(credits) || credits <= 0) {
-        CourseRow.showError(rowEl, 'Credits must be greater than 0.');
+        window.CourseRow.showError(rowEl, 'Credits must be greater than 0.');
         hasErrors = true;
         return;
       }
@@ -191,28 +191,28 @@ function initGpaCalculator(mountEl) {
     });
 
     if (hasErrors) {
-      ResultUI.renderErrorsState(resultContainer);
+      window.ResultUI.renderErrorsState(resultContainer);
       return;
     }
 
     if (coursesForEngine.length === 0) {
-      ResultUI.renderEmptyState(resultContainer);
+      window.ResultUI.renderEmptyState(resultContainer);
       return;
     }
 
-    const result = GpaEngine.calculateGPA(coursesForEngine, currentGradingConfig);
+    const result = window.GpaEngine.calculateGPA(coursesForEngine, currentGradingConfig);
 
     if (window.MST_Analytics) window.MST_Analytics.trackCalculation("gpa", slug);
 
     if (!result.success) {
-      ResultUI.renderErrorsState(resultContainer);
+      window.ResultUI.renderErrorsState(resultContainer);
       return;
     }
 
     if (result.totalCredits === 0) {
-      ResultUI.renderAllExcludedState(resultContainer);
+      window.ResultUI.renderAllExcludedState(resultContainer);
     } else {
-      ResultUI.renderGPAResult(resultContainer, result, incompleteCount);
+      window.ResultUI.renderGPAResult(resultContainer, result, incompleteCount);
     }
   };
 
@@ -229,11 +229,11 @@ function initGpaCalculator(mountEl) {
     }
     
     workspace.style.display = 'block';
-    currentGradingConfig = UniversityLoader.getGradingScale(rule);
+    currentGradingConfig = window.UniversityLoader.getGradingScale(rule);
     
     if (courseList.children.length === 0) {
       // First load
-      const savedState = Storage.loadCalculatorState('gpa', slug);
+      const savedState = window.Storage.loadCalculatorState('gpa', slug);
       if (savedState && Array.isArray(savedState) && savedState.length > 0) {
         savedState.forEach(courseData => addCourseRow(courseData));
       } else {
@@ -242,7 +242,7 @@ function initGpaCalculator(mountEl) {
     } else {
       // Rule changed, update rows
       Array.from(courseList.children).forEach(row => {
-        CourseRow.updateGradingConfig(row, currentGradingConfig);
+        window.CourseRow.updateGradingConfig(row, currentGradingConfig);
       });
     }
     handleInput();
@@ -254,7 +254,7 @@ function initGpaCalculator(mountEl) {
   });
 
   btnClear.addEventListener('click', () => {
-    Storage.clearCalculatorState('gpa', slug);
+    window.Storage.clearCalculatorState('gpa', slug);
     courseList.innerHTML = '';
     for (let i = 0; i < 5; i++) { addCourseRow(); }
     handleInput();
@@ -299,7 +299,7 @@ function initCgpaCalculator(mountEl) {
 
   const addSemesterRow = (initialData = null) => {
     const rowCount = semesterList.children.length;
-    const row = SemesterRow.createSemesterRow(rowCount, currentGradingConfig, initialData);
+    const row = window.SemesterRow.createSemesterRow(rowCount, currentGradingConfig, initialData);
     
     row.querySelector('.btn-remove').addEventListener('click', () => {
       if (semesterList.children.length > 1) {
@@ -323,10 +323,10 @@ function initCgpaCalculator(mountEl) {
     let incompleteCount = 0;
     const semestersForEngine = [];
 
-    rows.forEach(row => CourseRow.clearError(row));
+    rows.forEach(row => window.CourseRow.clearError(row));
 
-    const rawData = rows.map(row => SemesterRow.getSemesterData(row));
-    Storage.saveCalculatorState('cgpa', slug, rawData);
+    const rawData = rows.map(row => window.SemesterRow.getSemesterData(row));
+    window.Storage.saveCalculatorState('cgpa', slug, rawData);
 
     rawData.forEach((sem, index) => {
       const rowEl = rows[index];
@@ -344,12 +344,12 @@ function initCgpaCalculator(mountEl) {
       const credits = Number(sem.creditsStr);
 
       if (isNaN(gpa) || gpa < 0 || gpa > maxGPA) {
-        CourseRow.showError(rowEl, `GPA must be between 0 and ${maxGPA}.`);
+        window.CourseRow.showError(rowEl, `GPA must be between 0 and ${maxGPA}.`);
         hasErrors = true;
         return;
       }
       if (isNaN(credits) || credits <= 0) {
-        CourseRow.showError(rowEl, 'Credits must be greater than 0.');
+        window.CourseRow.showError(rowEl, 'Credits must be greater than 0.');
         hasErrors = true;
         return;
       }
@@ -358,25 +358,25 @@ function initCgpaCalculator(mountEl) {
     });
 
     if (hasErrors) {
-      ResultUI.renderErrorsState(resultContainer);
+      window.ResultUI.renderErrorsState(resultContainer);
       return;
     }
 
     if (semestersForEngine.length === 0) {
-      ResultUI.renderEmptyState(resultContainer);
+      window.ResultUI.renderEmptyState(resultContainer);
       return;
     }
 
-    const result = CgpaEngine.calculateCGPA(semestersForEngine);
+    const result = window.CgpaEngine.calculateCGPA(semestersForEngine);
 
     if (window.MST_Analytics) window.MST_Analytics.trackCalculation("cgpa", slug);
 
     if (!result.success) {
-      ResultUI.renderErrorsState(resultContainer);
+      window.ResultUI.renderErrorsState(resultContainer);
       return;
     }
 
-    ResultUI.renderCGPAResult(resultContainer, result, incompleteCount, maxGPA);
+    window.ResultUI.renderCGPAResult(resultContainer, result, incompleteCount, maxGPA);
   };
 
   let debounceTimeout;
@@ -392,7 +392,7 @@ function initCgpaCalculator(mountEl) {
     }
     
     workspace.style.display = 'block';
-    currentGradingConfig = UniversityLoader.getGradingScale(rule);
+    currentGradingConfig = window.UniversityLoader.getGradingScale(rule);
     
     const warningContainer = document.getElementById('feature-warning-cgpa');
     let warnings = [];
@@ -415,7 +415,7 @@ function initCgpaCalculator(mountEl) {
     }
 
     if (semesterList.children.length === 0) {
-      const savedState = Storage.loadCalculatorState('cgpa', slug);
+      const savedState = window.Storage.loadCalculatorState('cgpa', slug);
       if (savedState && Array.isArray(savedState) && savedState.length > 0) {
         savedState.forEach(semData => addSemesterRow(semData));
       } else {
@@ -423,7 +423,7 @@ function initCgpaCalculator(mountEl) {
       }
     } else {
       Array.from(semesterList.children).forEach(row => {
-        SemesterRow.updateGradingConfig(row, currentGradingConfig);
+        window.SemesterRow.updateGradingConfig(row, currentGradingConfig);
       });
     }
     handleInput();
@@ -435,7 +435,7 @@ function initCgpaCalculator(mountEl) {
   });
 
   btnClear.addEventListener('click', () => {
-    Storage.clearCalculatorState('cgpa', slug);
+    window.Storage.clearCalculatorState('cgpa', slug);
     semesterList.innerHTML = '';
     for (let i = 0; i < 2; i++) { addSemesterRow(); }
     handleInput();

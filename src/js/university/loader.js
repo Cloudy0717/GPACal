@@ -60,3 +60,7 @@ const UniversityLoader = {
 if (typeof module !== 'undefined') {
   module.exports = UniversityLoader;
 }
+
+if (typeof window !== 'undefined') {
+  window.UniversityLoader = UniversityLoader;
+}

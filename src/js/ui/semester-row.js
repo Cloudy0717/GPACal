@@ -73,3 +73,7 @@ if (typeof module !== 'undefined') {
 }
 
 
+
+if (typeof window !== 'undefined') {
+  window.SemesterRow = SemesterRow;
+}

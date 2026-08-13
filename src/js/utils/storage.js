@@ -72,3 +72,7 @@ if (typeof module !== 'undefined') {
   module.exports = Storage;
 }
 
+
+if (typeof window !== 'undefined') {
+  window.Storage = Storage;
+}

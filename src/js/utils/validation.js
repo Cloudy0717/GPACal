@@ -108,3 +108,7 @@ const Validation = {
 };
 
 if (typeof module !== 'undefined') module.exports = Validation;
+
+if (typeof window !== 'undefined') {
+  window.Validation = Validation;
+}

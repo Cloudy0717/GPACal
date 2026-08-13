@@ -131,3 +131,7 @@ const GpaEngine = {
 if (typeof module !== 'undefined') {
   module.exports = GpaEngine;
 }
+
+if (typeof window !== 'undefined') {
+  window.GpaEngine = GpaEngine;
+}

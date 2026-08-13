@@ -123,3 +123,7 @@
 if (typeof module !== 'undefined') {
   module.exports = ResultUI;
 }
+
+if (typeof window !== 'undefined') {
+  window.ResultUI = ResultUI;
+}

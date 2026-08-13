@@ -72,3 +72,7 @@ const CgpaEngine = {
 if (typeof module !== 'undefined') {
   module.exports = CgpaEngine;
 }
+
+if (typeof window !== 'undefined') {
+  window.GpaEngine = GpaEngine;
+}

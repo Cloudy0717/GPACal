@@ -40,7 +40,7 @@ function initWamCalculator(mountEl) {
 
   const addUnitRow = (initialData = null) => {
     const rowCount = unitList.children.length;
-    const row = WamRow.createWamRow(rowCount, gradingConfig, initialData);
+    const row = window.WamRow.createWamRow(rowCount, gradingConfig, initialData);
     
     row.querySelector('.btn-remove').addEventListener('click', () => {
       if (unitList.children.length > 1) {
@@ -66,8 +66,8 @@ function initWamCalculator(mountEl) {
     // We reuse course-row error styles
     rows.forEach(row => { row.classList.remove('has-error'); const m = row.querySelector('.row-error-message'); if(m) { m.style.display='none'; } });
 
-    const rawData = rows.map(row => WamRow.getWamData(row));
-    Storage.saveCalculatorState('wam', slug, rawData);
+    const rawData = rows.map(row => window.WamRow.getWamData(row));
+    window.Storage.saveCalculatorState('wam', slug, rawData);
 
     rawData.forEach((unit, index) => {
       const rowEl = rows[index];
@@ -95,29 +95,29 @@ function initWamCalculator(mountEl) {
     });
 
     if (hasErrors) {
-      ResultUI.renderErrorsState(resultContainer);
+      window.ResultUI.renderErrorsState(resultContainer);
       return;
     }
 
     if (unitsForEngine.length === 0) {
-      ResultUI.renderEmptyState(resultContainer);
+      window.ResultUI.renderEmptyState(resultContainer);
       return;
     }
 
-    const result = WamEngine.calculateWAM(unitsForEngine, calculationMethod, exclusions);
+    const result = window.WamEngine.calculateWAM(unitsForEngine, calculationMethod, exclusions);
 
     if (window.MST_Analytics) window.MST_Analytics.trackCalculation("wam", slug);
 
     if (!result.success) {
       // Render errors
-      ResultUI.renderErrorsState(resultContainer);
+      window.ResultUI.renderErrorsState(resultContainer);
       return;
     }
 
     if (result.includedCount === 0) {
-      ResultUI.renderAllExcludedState(resultContainer);
+      window.ResultUI.renderAllExcludedState(resultContainer);
     } else {
-      ResultUI.renderWAMResult(resultContainer, result, incompleteCount);
+      window.ResultUI.renderWAMResult(resultContainer, result, incompleteCount);
     }
   };
 
@@ -127,7 +127,7 @@ function initWamCalculator(mountEl) {
     debounceTimeout = setTimeout(calculateAndRender, 150);
   };
 
-  const savedState = Storage.loadCalculatorState('wam', slug);
+  const savedState = window.Storage.loadCalculatorState('wam', slug);
   if (savedState && Array.isArray(savedState) && savedState.length > 0) {
     savedState.forEach(unitData => addUnitRow(unitData));
   } else {
@@ -140,7 +140,7 @@ function initWamCalculator(mountEl) {
   });
 
   btnClear.addEventListener('click', () => {
-    Storage.clearCalculatorState('wam', slug);
+    window.Storage.clearCalculatorState('wam', slug);
     unitList.innerHTML = '';
     for (let i = 0; i < 4; i++) { addUnitRow(); }
     handleInput();

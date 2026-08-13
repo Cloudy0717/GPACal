@@ -118,3 +118,7 @@ const WamRow = {
 if (typeof module !== 'undefined') {
   module.exports = WamRow;
 }
+
+if (typeof window !== 'undefined') {
+  window.WamRow = WamRow;
+}

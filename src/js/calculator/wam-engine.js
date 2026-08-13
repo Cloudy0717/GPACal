@@ -174,3 +174,7 @@ const WamEngine = {
 if (typeof module !== 'undefined') {
   module.exports = WamEngine;
 }
+
+if (typeof window !== 'undefined') {
+  window.WamEngine = WamEngine;
+}
