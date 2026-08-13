@@ -29,14 +29,14 @@ jobs:
         with:
           node-version: '20'
           
-      - name: Run Tests
-        run: npm test
-        
       - name: Build Site
         env:
           BASE_PATH: /${{ github.event.repository.name }}
           BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         run: npm run build
+        
+      - name: Run Tests
+        run: npm test
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
