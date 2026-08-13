@@ -82,10 +82,10 @@ const CourseRow = {
     const currentVal = selectEl.value;
     
     const allGrades = (gradingConfig.grades || []).map(g => g.grade);
-    let optionsHtml = <option value="" disabled >--</option>;
+    let optionsHtml = `<option value="" disabled >--</option>`;
     optionsHtml += allGrades.map(g => {
       const selected = (currentVal === g) ? 'selected' : '';
-      return <option value="" ></option>;
+      return `<option value="${g}" ${selected}>${g}</option>`;
     }).join('');
     
     selectEl.innerHTML = optionsHtml;

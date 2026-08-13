@@ -42,21 +42,21 @@ function renderIntakeSection(container, data, slug, onChange) {
       }
       
       const sel = (val === savedYear) ? 'selected' : '';
-      options += <option value=" + val + "  + sel + > + label + </option>;
+      options += `<option value="${val}" ${sel}>${label}</option>`;
     });
-    html = 
+    html = `
       <div class="intake-section">
         <div class="intake-selector-group">
           <label for="intake-year-select">When did you start your programme?</label>
           <select id="intake-year-select" class="input-grade" style="width:auto;">
-             + options + 
+             ${options}
           </select>
         </div>
         <div id="rule-active-notice" class="rule-active-notice"></div>
       </div>
-    ;
+    `;
   } else {
-    html = <div class="intake-section"><div id="rule-active-notice" class="rule-active-notice"></div></div>;
+    html = `<div class="intake-section"><div id="rule-active-notice" class="rule-active-notice"></div></div>`;
   }
   
   container.innerHTML = html;
@@ -75,20 +75,20 @@ function renderIntakeSection(container, data, slug, onChange) {
      }
      
      if (!rule) {
-        noticeEl.innerHTML = <div class="error-text" style="padding: 1rem; background: #fee2e2; border-left: 4px solid #ef4444; margin-bottom:1rem;">?? We don't currently have verified grading rules for your intake year.</div>;
+        noticeEl.innerHTML = `<div class="error-text" style="padding: 1rem; background: #fee2e2; border-left: 4px solid #ef4444; margin-bottom:1rem;">?? We don't currently have verified grading rules for your intake year.</div>`;
      } else {
         let ruleName = rule.id.replace(/_/g, ' ');
         if (rule.effective_from && rule.effective_to) {
-            ruleName = Intake  + rule.effective_from.split('-')[0] +  to  + rule.effective_to.split('-')[0];
+            ruleName = `Intake ${rule.effective_from.split('-')[0]} to ${rule.effective_to.split('-')[0]}`;
         } else if (rule.effective_from) {
-            ruleName = rule.effective_from.split('-')[0] +  onwards;
+            ruleName = `${rule.effective_from.split('-')[0]} onwards`;
         } else if (rule.effective_to) {
-            ruleName = Pre- + (parseInt(rule.effective_to.split('-')[0]) + 1) +  (Legacy);
+            ruleName = `Pre-${parseInt(rule.effective_to.split('-')[0]) + 1} (Legacy)`;
         } else {
-            ruleName = Standard undergraduate;
+            ruleName = 'Standard undergraduate';
         }
         
-        noticeEl.innerHTML = <span class="badge" style="background:#e0e7ff;color:#3730a3;border:none;">? Using  + data.short_name +   + ruleName +  grading rules</span>;
+        noticeEl.innerHTML = `<span class="badge" style="background:#e0e7ff;color:#3730a3;border:none;">? Using ${data.short_name} ${ruleName} grading rules</span>`;
      }
      onChange(rule);
   };
@@ -113,7 +113,7 @@ function initGpaCalculator(mountEl) {
     return;
   }
 
-  mountEl.innerHTML = 
+  mountEl.innerHTML = `
     <div id="intake-container"></div>
     <div id="calc-workspace" style="display:none;">
       <div class="calculator-header">
@@ -126,7 +126,7 @@ function initGpaCalculator(mountEl) {
       </div>
       <div id="result-container" class="result-container"></div>
     </div>
-  ;
+  `;
 
   const intakeContainer = document.getElementById('intake-container');
   const workspace = document.getElementById('calc-workspace');
@@ -269,7 +269,7 @@ function initCgpaCalculator(mountEl) {
     return;
   }
 
-  mountEl.innerHTML = 
+  mountEl.innerHTML = `
     <div id="intake-container-cgpa"></div>
     <div id="feature-warning-cgpa"></div>
     <div id="calc-workspace-cgpa" style="display:none;">
@@ -283,7 +283,7 @@ function initCgpaCalculator(mountEl) {
       </div>
       <div id="result-container-cgpa" class="result-container"></div>
     </div>
-  ;
+  `;
 
   const intakeContainer = document.getElementById('intake-container-cgpa');
   const workspace = document.getElementById('calc-workspace-cgpa');
@@ -342,7 +342,7 @@ function initCgpaCalculator(mountEl) {
       const credits = Number(sem.creditsStr);
 
       if (isNaN(gpa) || gpa < 0 || gpa > maxGPA) {
-        window.CourseRow.showError(rowEl, GPA must be between 0 and  + maxGPA + .);
+        window.CourseRow.showError(rowEl, `GPA must be between 0 and ${maxGPA}.`);
         hasErrors = true;
         return;
       }
@@ -393,13 +393,13 @@ function initCgpaCalculator(mountEl) {
     const warningContainer = document.getElementById('feature-warning-cgpa');
     let warnings = [];
     if (rule.credit_selection_policy && rule.credit_selection_policy.enabled && rule.credit_selection_policy.implemented === false) {
-      warnings.push(?? <strong>Elective Optimization:</strong> This calculator provides a standard cumulative calculation and does not automatically remove excess elective credits. Your official CGPA may differ.);
+      warnings.push(`?? <strong>Elective Optimization:</strong> This calculator provides a standard cumulative calculation and does not automatically remove excess elective credits. Your official CGPA may differ.`);
     }
     if (rule.calculation_methods && rule.calculation_methods.wcgpa && rule.calculation_methods.wcgpa.supported && rule.calculation_methods.wcgpa.implemented === false) {
-      warnings.push(?? <strong>WCGPA:</strong> Your programme may use a Weighted CGPA for final classification. This tool calculates standard unweighted CGPA only.);
+      warnings.push(`?? <strong>WCGPA:</strong> Your programme may use a Weighted CGPA for final classification. This tool calculates standard unweighted CGPA only.`);
     }
     if (warnings.length > 0) {
-      warningContainer.innerHTML = <div class="info-callout" style="background: #fff3cd; border-left: 4px solid #ffc107; margin-bottom: 1.5rem; padding: 15px;"> + warnings.join('<br><br>') + </div>;
+      warningContainer.innerHTML = `<div class="info-callout" style="background: #fff3cd; border-left: 4px solid #ffc107; margin-bottom: 1.5rem; padding: 15px;">${warnings.join('<br><br>')}</div>`;
     } else {
       warningContainer.innerHTML = '';
     }
