@@ -1,0 +1,68 @@
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Malaysia Student Tools</h1>
+    <p class="hero-tagline">Free tools for Malaysian university students</p>
+    <p class="hero-description">
+      Accurate, fast, and easy-to-use grade calculators tailored specifically for Malaysian public and private university grading scales.
+    </p>
+  </div>
+</section>
+
+<section class="tools-section">
+  <h2 class="section-title">Select a Calculator</h2>
+  <div class="card-grid">
+    <div class="card card-interactive">
+      <div class="card-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="2" width="16" height="20" rx="2"/>
+          <line x1="8" y1="6" x2="16" y2="6"/>
+          <line x1="16" y1="14" x2="16" y2="18"/>
+          <line x1="16" y1="10" x2="16" y2="10.01"/>
+          <line x1="12" y1="10" x2="12" y2="10.01"/>
+          <line x1="8" y1="10" x2="8" y2="10.01"/>
+          <line x1="12" y1="14" x2="12" y2="14.01"/>
+          <line x1="8" y1="14" x2="8" y2="14.01"/>
+          <line x1="12" y1="18" x2="12" y2="18.01"/>
+          <line x1="8" y1="18" x2="8" y2="18.01"/>
+        </svg>
+      </div>
+      <h3 class="card-title">GPA Calculator</h3>
+      <p class="card-text">Calculate your Grade Point Average for a single semester using your university's official grading scheme.</p>
+      <a href="{{base_path}}/gpa-calculator/" class="btn btn-primary">Calculate GPA &rarr;</a>
+    </div>
+
+    <div class="card card-interactive">
+      <div class="card-icon accent-green">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"/>
+          <line x1="12" y1="20" x2="12" y2="4"/>
+          <line x1="6" y1="20" x2="6" y2="14"/>
+        </svg>
+      </div>
+      <h3 class="card-title">CGPA Calculator</h3>
+      <p class="card-text">Track and calculate your Cumulative Grade Point Average across multiple semesters to plan your academic target.</p>
+      <a href="{{base_path}}/cgpa-calculator/" class="btn btn-primary">Calculate CGPA &rarr;</a>
+    </div>
+
+    <div class="card card-interactive">
+      <div class="card-icon" style="background: #fdf4ff; color: #4f46e5;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+      </div>
+      <h3 class="card-title">WAM Calculator</h3>
+      <p class="card-text">Calculate your Weighted Average Mark (WAM) using precise credit and year-level weightings.</p>
+      <a href="{{base_path}}/wam-calculator/monash-malaysia/" class="btn btn-primary">Calculate WAM &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="universities-section">
+  <h2 class="section-title">Supported Universities</h2>
+  <p class="section-subtitle">Grade schemes customized for Malaysian higher education institutions:</p>
+  <div class="university-list-container">
+    {{university_list_html}}
+  </div>
+</section>
+

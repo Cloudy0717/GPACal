@@ -1,0 +1,97 @@
+{
+  "schema_version": 2,
+  "id": "help",
+  "name": "HELP University",
+  "short_name": "HELP",
+  "slug": "help",
+  "country": "MY",
+  "status": "verified",
+  "scopes": [
+    {
+      "id": "help_own_undergraduate",
+      "level": "undergraduate",
+      "programmes": [
+        "HELP University own undergraduate programmes"
+      ],
+      "excludes": [
+        "Partner-university programmes governed by partner regulations"
+      ]
+    }
+  ],
+  "academic_rules": [
+    {
+      "id": "help_undergrad_2024",
+      "scope_id": "help_own_undergraduate",
+      "effective_from": "2024-08-01",
+      "effective_to": null,
+      "grading_scales": [
+        {
+          "id": "standard",
+          "grades": [
+            { "grade": "A+", "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A",  "point": 3.75, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A-", "point": 3.50, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B+", "point": 3.25, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B",  "point": 3.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B-", "point": 2.75, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C+", "point": 2.50, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C",  "point": 2.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "F",  "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "FL", "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "RC", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "RF", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "AW", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "GP", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "IP", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "TA", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "NA", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "SX", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "WD", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } }
+          ]
+        }
+      ],
+      "calculation_methods": {
+        "gpa": { "method": "quality_points_over_credits" },
+        "cgpa": { "method": "cumulative_quality_points_over_credits" },
+        "classification_cgpa": {
+          "supported": true,
+          "implemented": false,
+          "method": "classification_best_subjects",
+          "weighting_note": "Honours classification uses Best 7/5 or Best 7/3 subjects with capping rules applied."
+        }
+      },
+      "exclusions": {
+        "cgpa": [
+          { "type": "module_category", "name": "Exempted subjects" }
+        ]
+      },
+      "repeat_policy": {
+        "supported": true,
+        "implemented": false,
+        "applicable_grades": [],
+        "max_repeats": 1,
+        "replacement_method": "complex_capping",
+        "notes": [
+          "Failed core subject repeats are capped at C.",
+          "Failed elective repeats are not capped.",
+          "Retaking a passed subject uses the higher of the original or retake grade."
+        ]
+      },
+      "credit_selection_policy": {
+        "enabled": false
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "HELP University Undergraduate Handbook 2026",
+      "url": "https://university.help.edu.my/wp-content/uploads/2026/02/Undergraduate-Handbook-2026.pdf",
+      "type": "official_handbook",
+      "verified_date": "2026-08-12",
+      "confidence": "high"
+    }
+  ],
+  "notes": [
+    "MPU subjects are explicitly included in CGPA effective Jan 2013 intake."
+  ]
+}

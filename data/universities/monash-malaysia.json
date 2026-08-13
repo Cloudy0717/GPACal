@@ -1,0 +1,112 @@
+{
+  "schema_version": 2,
+  "id": "monash-malaysia",
+  "name": "Monash University Malaysia",
+  "short_name": "Monash Malaysia",
+  "slug": "monash-malaysia",
+  "country": "MY",
+  "status": "verified",
+  "scopes": [
+    {
+      "id": "monash_standard_undergraduate",
+      "level": "undergraduate",
+      "programmes": [
+        "Standard undergraduate programmes globally across Monash campuses"
+      ],
+      "excludes": [
+        "Honours degrees with specific year-weighting",
+        "Postgraduate research degrees"
+      ]
+    }
+  ],
+  "academic_rules": [
+    {
+      "id": "monash_wam_current",
+      "scope_id": "monash_standard_undergraduate",
+      "effective_from": null,
+      "effective_to": null,
+      "grading_scales": [
+        {
+          "id": "standard_marks",
+          "input_type": "mark",
+          "grades": [
+            { "grade": "HD",  "min_mark": 80, "max_mark": 100, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": true } },
+            { "grade": "D",   "min_mark": 70, "max_mark": 79.99, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": true } },
+            { "grade": "C",   "min_mark": 60, "max_mark": 69.99, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": true } },
+            { "grade": "P",   "min_mark": 50, "max_mark": 59.99, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": true } },
+            { "grade": "N",   "min_mark": 0,  "max_mark": 49.99, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": true } },
+            { "grade": "SFR", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": false } },
+            { "grade": "NSR", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": false } },
+            { "grade": "NE",  "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": false } },
+            { "grade": "NAS", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": false } },
+            { "grade": "WDN", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": false } },
+            { "grade": "WI",  "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": false } },
+            { "grade": "PGO", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": false } },
+            { "grade": "NGO", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": false } },
+            { "grade": "DEF", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": false } },
+            { "grade": "NS",  "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": false } },
+            { "grade": "WH",  "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": false } },
+            { "grade": "WN",  "point": 0,    "counts": { "gpa": false, "cgpa": false, "credits": false, "wam": true } }
+          ]
+        }
+      ],
+      "calculation_methods": {
+        "primary": {
+          "method": "weighted_mark_average",
+          "display": {
+            "label": "WAM",
+            "format": "percentage",
+            "precision": 3
+          },
+          "weighting": {
+            "credit_points": true,
+            "year_level": {
+              "enabled": true,
+              "rules": [
+                { "year_level": 1, "weight": 0.5 },
+                { "year_level": "other", "weight": 1.0 }
+              ]
+            }
+          }
+        }
+      },
+      "exclusions": {
+        "cgpa": [],
+        "wam": [
+          { "type": "credit_source", "name": "External exemptions/transferred credits" },
+          { "type": "credit_source", "name": "Study Abroad (partner universities)" }
+        ]
+      },
+      "repeat_policy": {
+        "supported": true,
+        "implemented": true,
+        "applicable_grades": ["N", "WN"],
+        "max_repeats": null,
+        "replacement_method": "both_attempts_counted",
+        "notes": [
+          "BOTH attempts are included in the calculation. If a student fails a unit and then repeats it, the original fail mark remains permanently in the WAM, and the new mark is added alongside it."
+        ]
+      },
+      "credit_selection_policy": {
+        "enabled": false
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Weighted Average Mark (WAM) - Monash University",
+      "url": "https://www.monash.edu/students/admin/assessments/results/wam",
+      "type": "official_webpage",
+      "verified_date": "2026-08-13",
+      "confidence": "high"
+    },
+    {
+      "title": "Grading Scale - Monash University",
+      "url": "https://www.monash.edu/students/admin/assessments/results/grading-scale",
+      "type": "official_webpage",
+      "verified_date": "2026-08-13",
+      "confidence": "high"
+    }
+  ],
+  "notes": []
+}

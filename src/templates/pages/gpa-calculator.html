@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h1 class="page-title">Malaysia University GPA Calculator</h1>
+  <p class="page-description">
+    Calculate your semester Grade Point Average (GPA) based on your institution's specific grading policy. Select your university below to get started.
+  </p>
+</div>
+
+<section class="university-select-section">
+  <h2 class="section-title">Select Your University</h2>
+  <div class="university-list-container">
+    {{university_list_html}}
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="card">
+    <h3 class="card-title">How Semester GPA is Calculated</h3>
+    <p class="card-text">
+      Semester GPA is calculated by multiplying the grade points earned in each course by the course's credit hours, summing the result, and dividing by the total credit hours attempted in that semester:
+    </p>
+    <div class="formula-box">
+      <code>GPA = &sum; (Course Grade Points &times; Credit Hours) &divide; Total Credit Hours</code>
+    </div>
+  </div>
+</section>

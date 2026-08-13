@@ -1,0 +1,97 @@
+{
+  "schema_version": 2,
+  "id": "um",
+  "name": "Universiti Malaya",
+  "short_name": "UM",
+  "slug": "um",
+  "country": "MY",
+  "status": "verified",
+  "scopes": [
+    {
+      "id": "um_standard_undergraduate",
+      "level": "undergraduate",
+      "programmes": [
+        "Standard undergraduate semester-system bachelor's programmes"
+      ],
+      "excludes": [
+        "Bachelor of Medicine and Bachelor of Surgery (MBBS)",
+        "Bachelor of Dental Surgery",
+        "Programmes with faculty-specific grading regulations"
+      ]
+    }
+  ],
+  "academic_rules": [
+    {
+      "id": "um_undergrad_current",
+      "scope_id": "um_standard_undergraduate",
+      "effective_from": null,
+      "effective_to": null,
+      "grading_scales": [
+        {
+          "id": "standard",
+          "grades": [
+            { "grade": "A+", "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A",  "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A-", "point": 3.70, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B+", "point": 3.30, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B",  "point": 3.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B-", "point": 2.70, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C+", "point": 2.30, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C",  "point": 2.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C-", "point": 1.70, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D+", "point": 1.30, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D",  "point": 1.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "F",  "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } }
+          ]
+        }
+      ],
+      "calculation_methods": {
+        "gpa": { "method": "quality_points_over_credits" },
+        "cgpa": { "method": "cumulative_quality_points_over_credits" }
+      },
+      "exclusions": {
+        "cgpa": []
+      },
+      "repeat_policy": {
+        "supported": true,
+        "implemented": false,
+        "applicable_grades": [],
+        "max_repeats": 1,
+        "replacement_method": "better_grade",
+        "notes": [
+          "A student may repeat a passed course once to improve performance.",
+          "The best grade achieved is used for CGPA and credits.",
+          "Failed core/general courses must be repeated. Failed electives may be replaced with another course in the same category.",
+          "NOTE: This calculator performs standard cumulative calculation. It does not automatically exclude previous attempts of repeated/replaced courses."
+        ]
+      },
+      "credit_selection_policy": {
+        "enabled": false
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "UM Department of Electrical Engineering — GPA/CGPA Calculation and Rules",
+      "url": "https://ee.um.edu.my/course-information-for-bachelor-of-electrical-engineering.html",
+      "type": "official_webpage",
+      "verified_date": "2026-08-13",
+      "confidence": "high"
+    },
+    {
+      "title": "UM Bachelor's Degree Regulations 2019",
+      "url": "https://hep.um.edu.my/URUSAN%20TATATERTIB/UNIVERSITY%20OF%20MALAYA%20%28BACHELOR%27S%20DEGREE%29%20REGULATIONS%202019.pdf",
+      "type": "official_handbook",
+      "verified_date": "2026-08-13",
+      "confidence": "high"
+    },
+    {
+      "title": "UM Faculty of Science Handbook 2025/2026 — Grading Scheme",
+      "url": "https://ebook.um.edu.my/fsains/FINAL_HANDBOOK_20252026/files/basic-html/page13.html",
+      "type": "official_handbook",
+      "verified_date": "2026-08-13",
+      "confidence": "high"
+    }
+  ],
+  "notes": []
+}

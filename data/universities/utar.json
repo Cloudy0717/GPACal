@@ -1,0 +1,92 @@
+{
+  "schema_version": 2,
+  "id": "utar",
+  "name": "Universiti Tunku Abdul Rahman",
+  "short_name": "UTAR",
+  "slug": "utar",
+  "country": "MY",
+  "status": "verified",
+  "scopes": [
+    {
+      "id": "standard_undergraduate",
+      "level": "undergraduate",
+      "programmes": ["standard undergraduate programmes"],
+      "excludes": [
+        "MBBS and other programmes with special GPA rules"
+      ]
+    }
+  ],
+  "academic_rules": [
+    {
+      "id": "utar_undergrad_current",
+      "scope_id": "standard_undergraduate",
+      "effective_from": null,
+      "effective_to": null,
+      "grading_scales": [
+        {
+          "id": "standard",
+          "grades": [
+            { "grade": "A+", "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A", "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A-", "point": 3.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B+", "point": 3.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B", "point": 3.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B-", "point": 2.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C+", "point": 2.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C", "point": 2.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "F", "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "P", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "PS", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } }
+          ]
+        }
+      ],
+      "calculation_methods": {
+        "gpa": {
+          "method": "quality_points_over_credits"
+        },
+        "cgpa": {
+          "method": "cumulative_quality_points_over_credits"
+        },
+        "wcgpa": {
+          "supported": false
+        }
+      },
+      "exclusions": {
+        "cgpa": [
+          { "type": "module_category", "name": "Courses which have no contributions to the GPA or CGPA (depends on specific programme structures)" }
+        ]
+      },
+      "repeat_policy": {
+        "supported": true,
+        "implemented": false,
+        "applicable_grades": [],
+        "max_repeats": null,
+        "replacement_method": "unresolved",
+        "notes": [
+          "Repeat course replacement policy is not explicitly documented on the DEAS grading page. Requires the full Student Handbook to confirm whether the latest grade replaces the old grade in the CGPA divisor."
+        ]
+      },
+      "credit_selection_policy": {
+        "enabled": false
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "UTAR Division of Examinations, Awards and Scholarships — Grading System",
+      "url": "https://deas.utar.edu.my/Grade-Sys.php",
+      "type": "official_webpage",
+      "verified_date": "2026-08-12"
+    },
+    {
+      "title": "UTAR Division of Examinations, Awards and Scholarships — Calculation of GPA and CGPA",
+      "url": "https://deas.utar.edu.my/CGPA-Cal.php",
+      "type": "official_webpage",
+      "verified_date": "2026-08-12"
+    }
+  ],
+  "notes": [
+    "MBBS has a specific rule where GPA is determined by the sum of quality points in either First, Second, or Final Professional Examinations rather than a standard trimester basis. It is currently excluded from this calculator."
+  ]
+}
+

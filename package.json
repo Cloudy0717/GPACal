@@ -1,0 +1,23 @@
+{
+  "name": "malaysia-student-tools",
+  "version": "0.1.0",
+  "description": "Free academic tools for Malaysian university students",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "test": "node --test tests/**/*.test.js",
+    "test:engine": "node --test tests/engine/*.test.js",
+    "test:data": "node --test tests/data/*.test.js",
+    "test:build": "node build.js && node --test tests/build/*.test.js",
+    "clean": "node -e \"const fs=require('fs');if(fs.existsSync('dist'))fs.rmSync('dist',{recursive:true});console.log('dist/ cleaned')\"",
+    "dev": "npm run build && echo 'Build complete. Open dist/index.html in browser.'"
+  },
+  "keywords": [
+    "gpa",
+    "cgpa",
+    "calculator",
+    "malaysia",
+    "university"
+  ],
+  "license": "MIT"
+}

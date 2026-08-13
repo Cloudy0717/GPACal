@@ -1,0 +1,67 @@
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="{{base_path}}/">Home</a> &rsaquo; <a href="{{base_path}}/cgpa-calculator/">CGPA Calculator</a> &rsaquo; <span>{{university_short_name}}</span>
+  </div>
+  <h1 class="page-title">{{university_short_name}} CGPA Calculator</h1>
+  <p class="page-description">
+    Calculate your Cumulative GPA (CGPA) and track your overall degree classification for {{university_full_name}} ({{university_short_name}}).
+  </p>
+</div>
+
+<div class="calculator-wrapper">
+  <div class="info-callout scope-warning" style="margin-bottom: 20px; padding: 15px; background: #fff3cd; border-left: 4px solid #ffc107;">
+    <strong>Scope:</strong> {{scope_warning_text}}
+  </div>
+
+  <!-- Interactive Calculator Mount Point -->
+  <div id="cgpa-calculator-mount" class="calculator-container" data-slug="{{university_slug}}">
+    <!-- JS App Injects CGPA Calculator Here -->
+  </div>
+
+  <div class="info-callout disclaimer" style="margin-top: 20px; padding: 15px; background: #e2e3e5; border-left: 4px solid #6c757d; font-size: 0.9em;">
+    Calculations are for informational purposes only. Please verify your CGPA against your official university records.
+  </div>
+
+  <div class="cross-link-box" style="margin-top: 1.5rem; text-align: center; padding: 1rem; background: var(--bg-white); border-radius: 6px; box-shadow: var(--shadow-sm);">
+    Need to calculate a single semester? Use the <a href="{{base_path}}/gpa-calculator/{{university_slug}}/"><strong>{{university_short_name}} GPA Calculator &rarr;</strong></a>
+  </div>
+</div>
+
+<section class="grading-system-section">
+  <h2 class="section-title">{{university_short_name}} Grading Scale</h2>
+  <p class="section-subtitle">Official grade point values for {{university_name}}:</p>
+  
+  <div class="grading-table-wrapper" id="grading-table-container">
+    {{grading_table_html}}
+  </div>
+</section>
+
+<section class="explanation-section">
+  <div class="card">
+    <h2 class="card-title">How {{university_short_name}} CGPA Calculation Works</h2>
+    <p>
+      At {{university_full_name}}, your CGPA is updated at the conclusion of every academic semester. It incorporates all credit-bearing subjects attempted throughout your study program.
+    </p>
+    <div class="formula-box">
+      <strong>Formula:</strong><br>
+      <code>Cumulative CGPA = Total Quality Points (All Semesters) &divide; Total Credit Hours (All Semesters)</code>
+    </div>
+    <ul>
+      <li>Determine total points earned in each semester (GPA &times; Semester Credits).</li>
+      <li>Sum all semester points to obtain total cumulative quality points.</li>
+      <li>Divide cumulative quality points by total cumulative credit hours attempted.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="attribution-section" style="margin-top: 2rem;">
+  <div class="attribution-box" style="background: #f8f9fa; padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 8px;">
+    <h3 style="margin-top: 0; font-size: 1.1rem; color: #1a1a2e;">Grading Rules Source</h3>
+    <p style="margin-bottom: 0.5rem;"><strong>{{university_full_name}}</strong></p>
+    {{sources_html}}
+  </div>
+</section>
+
+
+
+

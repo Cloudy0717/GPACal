@@ -1,0 +1,16 @@
+{
+  "schema_version": 2,
+  "id": "nottingham-malaysia",
+  "name": "University of Nottingham Malaysia",
+  "short_name": "Nottingham",
+  "slug": "nottingham-malaysia",
+  "country": "MY",
+  "status": "pending",
+  "scopes": [],
+  "academic_rules": [],
+  "sources": [],
+  "notes": [
+    "UK Degree Classification (Part I / Part II) mechanics are structurally verified but currently unimplemented.",
+    "Borderline upgrade algorithms requiring 66% higher-tier credit volumes cannot be mathematically supported by the generic WAM engine."
+  ]
+}

@@ -1,0 +1,25 @@
+﻿<div class="page-header">
+  <h1 class="page-title">Malaysia University WAM Calculator</h1>
+  <p class="page-description">
+    Calculate your Weighted Average Mark (WAM) based on your institution's specific grading policy. Select your university below to get started.
+  </p>
+</div>
+
+<section class="university-select-section">
+  <h2 class="section-title">Select Your University</h2>
+  <div class="university-list-container">
+    {{university_list_html}}
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="card">
+    <h3 class="card-title">How WAM is Calculated</h3>
+    <p class="card-text">
+      WAM is calculated by multiplying the raw marks earned in each course by the course's credit hours and year level weighting, summing the result, and dividing by the total weighted credit hours:
+    </p>
+    <div class="formula-box">
+      <code>WAM = &sum; (Mark &times; Credit Hours &times; Year Weight) &divide; &sum; (Credit Hours &times; Year Weight)</code>
+    </div>
+  </div>
+</section>

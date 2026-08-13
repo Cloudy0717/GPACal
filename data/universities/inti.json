@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "id": "inti",
+  "name": "INTI International University & Colleges",
+  "short_name": "INTI",
+  "slug": "inti",
+  "country": "MY",
+  "status": "pending",
+  "scopes": [],
+  "academic_rules": [],
+  "sources": [],
+  "notes": [
+    "Official INTI grading scale and GPA/CGPA calculation rules could not be verified from public academic regulations.",
+    "Scholarship/admission equivalency tables exist but are unsafe to use for internal academic grading.",
+    "INTI hosts many partner-university programmes, meaning programme-specific scoping will be highly necessary once official documentation is found."
+  ]
+}

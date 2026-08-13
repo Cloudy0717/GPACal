@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <link rel="canonical" href="{{canonical}}">
+  <link rel="icon" type="image/svg+xml" href="{{base_path}}/assets/favicon.svg">
+  <link rel="stylesheet" href="{{base_path}}/css/style.css">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="{{og_title}}">
+  <meta property="og:description" content="{{og_description}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{og_url}}">
+  <meta property="og:image" content="{{og_image}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{og_title}}">
+  <meta name="twitter:description" content="{{og_description}}">
+  <meta name="twitter:image" content="{{og_image}}">
+  <script type="application/ld+json">
+    {{schema_org_json}}
+  </script>
+</head>
+<body>
+  {{nav}}
+
+  <main id="main-content" class="main-container">
+    {{content}}
+  </main>
+
+  {{footer}}
+
+  <script src="{{base_path}}/js/university-data.js"></script>
+  <script src="{{base_path}}/js/calculator/gpa-engine.js"></script>
+  <script src="{{base_path}}/js/calculator/cgpa-engine.js"></script>
+  <script src="{{base_path}}/js/ui/course-row.js"></script>
+  <script src="{{base_path}}/js/ui/semester-row.js"></script>
+  <script src="{{base_path}}/js/ui/result.js"></script>
+  <script src="{{base_path}}/js/utils/storage.js"></script>
+  <script src="{{base_path}}/js/utils/validation.js"></script>
+  <script src="{{base_path}}/js/university/loader.js"></script>
+  <script src="{{base_path}}/js/app.js"></script>
+  <script src="{{base_path}}/js/calculator/wam-engine.js"></script>
+  <script src="{{base_path}}/js/ui/wam-row.js"></script>
+  <script src="{{base_path}}/js/app-wam.js"></script>
+</body>
+</html>
+
+
+
+

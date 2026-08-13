@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "id": "utm",
+  "name": "Universiti Teknologi Malaysia",
+  "short_name": "UTM",
+  "slug": "utm",
+  "country": "MY",
+  "status": "verified",
+  "scopes": [
+    {
+      "id": "utm_full_time_undergraduate",
+      "level": "undergraduate",
+      "programmes": [
+        "Full-time undergraduate programmes"
+      ],
+      "excludes": []
+    }
+  ],
+  "academic_rules": [
+    {
+      "id": "utm_undergrad_2022",
+      "scope_id": "utm_full_time_undergraduate",
+      "effective_from": "2022-09-01",
+      "effective_to": null,
+      "grading_scales": [
+        {
+          "id": "standard",
+          "grades": [
+            { "grade": "A+", "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A",  "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A-", "point": 3.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B+", "point": 3.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B",  "point": 3.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B-", "point": 2.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C+", "point": 2.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C",  "point": 2.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C-", "point": 1.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D+", "point": 1.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D",  "point": 1.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D-", "point": 0.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "E",  "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "HS", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "HL", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "HG", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "TS", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } }
+          ]
+        }
+      ],
+      "calculation_methods": {
+        "gpa": { "method": "quality_points_over_credits" },
+        "cgpa": { "method": "cumulative_quality_points_over_credits" }
+      },
+      "exclusions": {
+        "cgpa": [
+          { "type": "credit_transfer", "name": "Vertical credit transfer" }
+        ]
+      },
+      "repeat_policy": {
+        "supported": true,
+        "implemented": false,
+        "applicable_grades": ["B-", "C+", "C", "C-", "D+", "D", "D-", "E"],
+        "max_repeats": 1,
+        "replacement_method": "better_grade_cgpa_latest_gpa",
+        "notes": [
+          "Grades B- or below may be repeated for improvement (max 15 credits).",
+          "Latest grade counts for GPA; best grade counts for CGPA.",
+          "Failed core/general courses must be repeated until passed. Original credits/points are nullified.",
+          "Failed electives may be replaced. If a different elective is used, the original failed elective remains in the CGPA."
+        ]
+      },
+      "credit_selection_policy": {
+        "enabled": false
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "UTM Academic Regulations Full-Time Undergraduate Studies 16th Edition",
+      "url": "https://ugs.utm.my/wp-content/uploads/sites/8/2026/05/FT-UG-ACADEMIC-REGULATIONS-16th-edition.pdf",
+      "type": "official_handbook",
+      "verified_date": "2026-08-13",
+      "confidence": "high"
+    }
+  ],
+  "notes": []
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "id": "utp",
+  "name": "Universiti Teknologi PETRONAS",
+  "short_name": "UTP",
+  "slug": "utp",
+  "country": "MY",
+  "status": "verified",
+  "scopes": [
+    {
+      "id": "utp_standard_undergraduate",
+      "level": "undergraduate",
+      "programmes": [
+        "Undergraduate programmes"
+      ],
+      "excludes": []
+    }
+  ],
+  "academic_rules": [
+    {
+      "id": "utp_undergrad_current",
+      "scope_id": "utp_standard_undergraduate",
+      "effective_from": "2014-01-01",
+      "effective_to": null,
+      "grading_scales": [
+        {
+          "id": "standard",
+          "grades": [
+            { "grade": "A",  "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A-", "point": 3.75, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B+", "point": 3.50, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B",  "point": 3.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C+", "point": 2.50, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C",  "point": 2.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D+", "point": 1.50, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D",  "point": 1.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "F",  "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "QF", "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "AU", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "CT", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "DF", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "EX", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "I",  "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "P",  "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "W",  "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "SP", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } }
+          ]
+        }
+      ],
+      "calculation_methods": {
+        "gpa": { "method": "quality_points_over_credits" },
+        "cgpa": { "method": "cumulative_quality_points_over_credits" }
+      },
+      "exclusions": {
+        "cgpa": []
+      },
+      "repeat_policy": {
+        "supported": true,
+        "implemented": false,
+        "applicable_grades": ["C", "D+", "D", "F", "QF"],
+        "max_repeats": 1,
+        "replacement_method": "better_grade",
+        "notes": [
+          "Course redemption/grade replacement applies to C grade and below.",
+          "One replacement per course. BEST grade counts toward CGPA.",
+          "All attempts remain visible on transcript. Lower repeated grade may be marked AU (Audit)."
+        ]
+      },
+      "credit_selection_policy": {
+        "enabled": false
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "UTP Undergraduate Student Handbook A 2024",
+      "url": "https://www.utp.edu.my/sites/Publishing/PublishingContent/StudentHandbook/2024/UG%20STUDENT%20HANDBOOK%20A%20-%202024%20UPDATED%20ON%2028.02.24.pdf",
+      "type": "official_handbook",
+      "verified_date": "2026-08-13",
+      "confidence": "high"
+    }
+  ],
+  "notes": [
+    "UTP students must obtain a minimum of 40% in BOTH the final examination and coursework to pass.",
+    "Raw-mark-to-grade boundaries are not sufficiently verified publicly and are intentionally excluded from the data."
+  ]
+}
+

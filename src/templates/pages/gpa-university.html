@@ -1,0 +1,74 @@
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="{{base_path}}/">Home</a> &rsaquo; <a href="{{base_path}}/gpa-calculator/">GPA Calculator</a> &rsaquo; <span>{{university_short_name}}</span>
+  </div>
+  <h1 class="page-title">{{university_short_name}} GPA Calculator</h1>
+  <p class="page-description">
+    Calculate your semester GPA using the official grading system for {{university_full_name}} ({{university_short_name}}).
+  </p>
+</div>
+
+<div class="calculator-wrapper">
+  <div class="info-callout scope-warning" style="margin-bottom: 20px; padding: 15px; background: #fff3cd; border-left: 4px solid #ffc107;">
+    <strong>Scope:</strong> {{scope_warning_text}}
+  </div>
+
+  <!-- Interactive Calculator Mount Point -->
+  <div id="gpa-calculator" class="calculator-container" data-university="{{university_slug}}">
+    <!-- UI will be rendered here -->
+  </div>
+
+  <div class="info-callout disclaimer" style="margin-top: 20px; padding: 15px; background: #e2e3e5; border-left: 4px solid #6c757d; font-size: 0.9em;">
+    Calculations are for informational purposes only. Please verify your GPA against your official university records.
+  </div>
+  
+  <div class="cross-link-box" style="margin-top: 1.5rem; text-align: center; padding: 1rem; background: var(--bg-white); border-radius: 6px; box-shadow: var(--shadow-sm);">
+    Need to calculate your overall degree progress? Use the <a href="{{base_path}}/cgpa-calculator/{{university_slug}}/"><strong>{{university_short_name}} CGPA Calculator &rarr;</strong></a>
+  </div>
+</div>
+
+<section class="grading-system-section">
+  <h2 class="section-title">{{university_short_name}} Grading Scale</h2>
+  <p class="section-subtitle">Official grade point values for {{university_name}}:</p>
+  
+  <div class="grading-table-wrapper" id="grading-table-container">
+    {{grading_table_html}}
+  </div>
+</section>
+
+<section class="explanation-section">
+  <div class="card">
+    <h2 class="card-title">How to calculate {{university_short_name}} GPA</h2>
+    <p>
+      At {{university_full_name}}, your Grade Point Average (GPA) is computed at the end of each semester. Each grade awarded corresponds to a fixed grade point value as specified in the university's academic regulations.
+    </p>
+    <div class="formula-box">
+      <strong>Formula:</strong><br>
+      <code>Semester GPA = Total Grade Points Earned &divide; Total Credit Hours Attempted</code>
+    </div>
+    <ul>
+      <li>Multiply the grade points earned by the credit units of each course.</li>
+      <li>Add the products together to get the total grade points earned.</li>
+      <li>Divide total grade points by the total credit units taken in the semester.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="faq-section" style="margin-top: 2rem;">
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    {{faq_html}}
+  </div>
+</section>
+
+<section class="attribution-section" style="margin-top: 2rem;">
+  <div class="attribution-box" style="background: #f8f9fa; padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 8px;">
+    <h3 style="margin-top: 0; font-size: 1.1rem; color: #1a1a2e;">Grading Rules Source</h3>
+    <p style="margin-bottom: 0.5rem;"><strong>{{university_full_name}}</strong></p>
+    {{sources_html}}
+  </div>
+</section>
+
+
+
+

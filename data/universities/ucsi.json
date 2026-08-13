@@ -1,0 +1,131 @@
+{
+  "schema_version": 2,
+  "id": "ucsi",
+  "name": "UCSI University",
+  "short_name": "UCSI",
+  "slug": "ucsi",
+  "country": "MY",
+  "status": "verified",
+  "scopes": [
+    {
+      "id": "general_undergraduate",
+      "level": "undergraduate",
+      "programmes": ["general undergraduate programmes"],
+      "excludes": [
+        "A Levels",
+        "Pharmaceutical Sciences",
+        "Medicine"
+      ]
+    }
+  ],
+  "academic_rules": [
+    {
+      "id": "ucsi_undergrad_2024",
+      "scope_id": "general_undergraduate",
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "grading_scales": [
+        {
+          "id": "standard_2024",
+          "grades": [
+            { "grade": "A+", "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A", "point": 3.75, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A-", "point": 3.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B+", "point": 3.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B", "point": 3.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C+", "point": 2.50, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C", "point": 2.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C-", "point": 1.50, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D", "point": 1.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "F", "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } }
+          ]
+        }
+      ],
+      "calculation_methods": {
+        "gpa": { "method": "quality_points_over_credits" },
+        "cgpa": { "method": "cumulative_quality_points_over_credits" }
+      },
+      "exclusions": {
+        "cgpa": [
+          { "type": "module_category", "name": "MQA compulsory courses" },
+          { "type": "module_category", "name": "Courses without a grade point" },
+          { "type": "module_category", "name": "English Requirement courses" },
+          { "type": "credit_source", "name": "Credits transferred from other institutions" },
+          { "type": "repeat_replacement", "name": "Failed courses which have been replaced and subsequently passed" }
+        ]
+      },
+      "repeat_policy": {
+        "supported": true,
+        "implemented": false,
+        "applicable_grades": ["C+", "C"],
+        "max_repeats": 1,
+        "replacement_method": "better_grade",
+        "notes": [
+          "Passed C+ or C courses may be repeated for grade improvement with approval.",
+          "The better course grade is used in CGPA calculation.",
+          "Grade improvement does not apply to final year projects, ELE, Co-Op, Industrial Training, or lab/practical-based courses."
+        ]
+      },
+      "credit_selection_policy": { "enabled": false }
+    },
+    {
+      "id": "ucsi_undergrad_legacy",
+      "scope_id": "general_undergraduate",
+      "effective_from": null,
+      "effective_to": "2023-12-31",
+      "grading_scales": [
+        {
+          "id": "standard_legacy",
+          "grades": [
+            { "grade": "A", "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A-", "point": 3.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B+", "point": 3.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B", "point": 3.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B-", "point": 2.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C+", "point": 2.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C", "point": 2.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C-", "point": 1.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D+", "point": 1.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D", "point": 1.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D-", "point": 0.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "F", "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } }
+          ]
+        }
+      ],
+      "calculation_methods": {
+        "gpa": { "method": "quality_points_over_credits" },
+        "cgpa": { "method": "cumulative_quality_points_over_credits" }
+      },
+      "exclusions": {
+        "cgpa": [
+          { "type": "module_category", "name": "MQA compulsory courses" },
+          { "type": "module_category", "name": "Courses without a grade point" },
+          { "type": "module_category", "name": "English Requirement courses" },
+          { "type": "credit_source", "name": "Credits transferred from other institutions" },
+          { "type": "repeat_replacement", "name": "Failed courses which have been replaced and subsequently passed" }
+        ]
+      },
+      "repeat_policy": {
+        "supported": true,
+        "implemented": false,
+        "applicable_grades": [],
+        "max_repeats": null,
+        "replacement_method": "unresolved",
+        "notes": ["Legacy repeat policy explicitly unverified in this research phase."]
+      },
+      "credit_selection_policy": { "enabled": false }
+    }
+  ],
+  "sources": [
+    {
+      "title": "UCSI University Undergraduate Student Handbook — Revised April 2025",
+      "url": "https://www.ucsiuniversity.edu.my/sites/default/files/student_handbook_undergraduate.pdf",
+      "type": "official_handbook",
+      "verified_date": "2026-08-12"
+    }
+  ],
+  "notes": [
+    "Two academic rules exist due to a major grading scale change effective Jan 2024."
+  ]
+}
+

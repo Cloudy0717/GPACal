@@ -1,0 +1,16 @@
+{
+  "schema_version": 2,
+  "id": "reading-malaysia",
+  "name": "University of Reading Malaysia",
+  "short_name": "Reading",
+  "slug": "reading-malaysia",
+  "country": "MY",
+  "status": "pending",
+  "scopes": [],
+  "academic_rules": [],
+  "sources": [],
+  "notes": [
+    "UK Degree Classification mechanics are structurally verified but currently unimplemented.",
+    "Weighting ratios (e.g., Part 2 to Part 3) vary intensely by specific programme, preventing a generalized calculator until advanced routing is built."
+  ]
+}

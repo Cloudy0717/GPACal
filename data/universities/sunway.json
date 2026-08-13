@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "id": "sunway",
+  "name": "Sunway University",
+  "short_name": "Sunway",
+  "slug": "sunway",
+  "country": "MY",
+  "status": "pending",
+  "scopes": [],
+  "academic_rules": [],
+  "sources": [],
+  "notes": [
+    "Sunway ADTP grading scale (4.00) found, but no general undergraduate grading scale can be verified for standard degrees. Awaiting official documentation."
+  ]
+}

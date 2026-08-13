@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "id": "uow-malaysia",
+  "name": "UOW Malaysia KDU",
+  "short_name": "UOW Malaysia",
+  "slug": "uow-malaysia",
+  "country": "MY",
+  "status": "verified",
+  "scopes": [
+    {
+      "id": "uow_malaysia_standard_undergraduate",
+      "level": "undergraduate",
+      "programmes": [
+        "Standard UOW Malaysia undergraduate programmes"
+      ],
+      "excludes": [
+        "Franchise programmes where the handbook states that the partner university's grading practices apply"
+      ]
+    }
+  ],
+  "academic_rules": [
+    {
+      "id": "uow_malaysia_undergrad_current",
+      "scope_id": "uow_malaysia_standard_undergraduate",
+      "effective_from": null,
+      "effective_to": null,
+      "grading_scales": [
+        {
+          "id": "standard",
+          "grades": [
+            { "grade": "A+", "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A", "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A-", "point": 3.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B+", "point": 3.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B", "point": 3.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B-", "point": 2.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C+", "point": 2.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C", "point": 2.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D", "point": 1.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "F", "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "P", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "F(P/F)", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "W", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } }
+          ]
+        }
+      ],
+      "calculation_methods": {
+        "gpa": { "method": "quality_points_over_credits" },
+        "cgpa": { "method": "cumulative_quality_points_over_credits" }
+      },
+      "exclusions": {
+        "cgpa": []
+      },
+      "repeat_policy": {
+        "supported": true,
+        "implemented": false,
+        "applicable_grades": [],
+        "max_repeats": 2,
+        "replacement_method": "latest_grade",
+        "notes": [
+          "Mark 0-49 may be retaken. Max 2 attempts. Final grade based on UOW grading system."
+        ]
+      },
+      "credit_selection_policy": {
+        "enabled": false
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "University of Wollongong Malaysia Undergraduate Handbook 2026",
+      "url": "https://www.uow.edu.my/pdf/Handbook-Undergraduate-2026-University-of-Wollongong-Malaysia.pdf",
+      "type": "official_handbook",
+      "verified_date": "2026-08-13",
+      "confidence": "high"
+    }
+  ],
+  "notes": []
+}

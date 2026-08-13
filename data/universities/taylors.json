@@ -1,0 +1,101 @@
+{
+  "schema_version": 2,
+  "id": "taylors",
+  "name": "Taylor's University",
+  "short_name": "Taylor's",
+  "slug": "taylors",
+  "country": "MY",
+  "status": "verified",
+  "scopes": [
+    {
+      "id": "standard_undergraduate",
+      "level": "undergraduate",
+      "programmes": [
+        "Standard Diploma",
+        "Advanced Diploma",
+        "Degree programmes"
+      ],
+      "excludes": [
+        "MBBS",
+        "Programmes with specific grading systems",
+        "Architecture (WCGPA exception)",
+        "Interior Architecture (WCGPA exception)",
+        "Quantity Surveying (WCGPA exception)"
+      ]
+    }
+  ],
+  "academic_rules": [
+    {
+      "id": "taylors_undergrad_current",
+      "scope_id": "standard_undergraduate",
+      "effective_from": "2018-03-01",
+      "effective_to": null,
+      "grading_scales": [
+        {
+          "id": "standard",
+          "grades": [
+            { "grade": "A", "point": 4.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "A-", "point": 3.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B+", "point": 3.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B", "point": 3.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "B-", "point": 2.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C+", "point": 2.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "C", "point": 2.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D+", "point": 1.67, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D", "point": 1.33, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "D-", "point": 1.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "F", "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "F(W)", "point": 0.00, "counts": { "gpa": true, "cgpa": true, "credits": true } },
+            { "grade": "P", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "AU", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "IN", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "IP", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } },
+            { "grade": "WD", "point": null, "counts": { "gpa": false, "cgpa": false, "credits": false } }
+          ]
+        }
+      ],
+      "calculation_methods": {
+        "gpa": { "method": "quality_points_over_credits" },
+        "cgpa": { "method": "cumulative_quality_points_over_credits" },
+        "wcgpa": {
+          "supported": true,
+          "implemented": false,
+          "method": "year_weighted",
+          "weighting_note": "Effective Jan 2021 intake for applicable Bachelor's: 3-year uses 20:30:50, 4-year uses 10:20:30:40."
+        }
+      },
+      "exclusions": {
+        "cgpa": []
+      },
+      "repeat_policy": {
+        "supported": true,
+        "applicable_grades": [],
+        "max_repeats": null,
+        "replacement_method": "previous_grade_excluded_after_repeat",
+        "notes": [
+          "Official transcript notation R indicates a repeated module.",
+          "Previous grade(s) marked with * are not calculated in CGPA."
+        ]
+      },
+      "credit_selection_policy": {
+        "enabled": true,
+        "implemented": false,
+        "type": "elective_optimization",
+        "description": "When attempted credits exceed minimum graduation credits, module/credit selection may be based on best possible outcome / highest grade achieved."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Taylor's University — Exam and Results",
+      "url": "https://university.taylors.edu.my/en/student-life/manage-your-studies/exam-and-results.html",
+      "type": "official_webpage",
+      "verified_date": "2026-08-12",
+      "confidence": "high"
+    }
+  ],
+  "notes": [
+    "WCGPA and elective optimization are documented but currently unsupported by the calculator engine."
+  ]
+}
+

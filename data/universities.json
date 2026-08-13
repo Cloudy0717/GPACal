@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "universities": [
+    {
+      "id": "utar",
+      "name": "Universiti Tunku Abdul Rahman",
+      "short_name": "UTAR",
+      "slug": "utar",
+      "status": "verified"
+    },
+    {
+      "id": "ucsi",
+      "name": "UCSI University",
+      "short_name": "UCSI",
+      "slug": "ucsi",
+      "status": "verified"
+    },
+    {
+      "id": "taylors",
+      "name": "Taylor's University",
+      "short_name": "Taylor's",
+      "slug": "taylors",
+      "status": "verified"
+    },
+    {
+      "id": "sunway",
+      "name": "Sunway University",
+      "short_name": "Sunway",
+      "slug": "sunway",
+      "status": "pending"
+    },
+    {
+      "id": "help",
+      "name": "HELP University",
+      "short_name": "HELP",
+      "slug": "help",
+      "status": "verified"
+    },
+    {
+      "id": "inti",
+      "name": "INTI International University & Colleges",
+      "short_name": "INTI",
+      "slug": "inti",
+      "status": "pending"
+    },
+    {
+      "id": "um",
+      "name": "Universiti Malaya",
+      "short_name": "UM",
+      "slug": "um",
+      "status": "verified"
+    },
+    {
+      "id": "utm",
+      "name": "Universiti Teknologi Malaysia",
+      "short_name": "UTM",
+      "slug": "utm",
+      "status": "verified"
+    },
+    {
+      "id": "utp",
+      "name": "Universiti Teknologi PETRONAS",
+      "short_name": "UTP",
+      "slug": "utp",
+      "status": "verified"
+    },
+    {
+      "id": "uow-malaysia",
+      "name": "UOW Malaysia KDU",
+      "short_name": "UOW Malaysia",
+      "slug": "uow-malaysia",
+      "status": "verified"
+    },
+    {
+      "id": "monash-malaysia",
+      "name": "Monash University Malaysia",
+      "short_name": "Monash",
+      "slug": "monash-malaysia",
+      "status": "verified"
+    },
+    {
+      "id": "nottingham-malaysia",
+      "name": "University of Nottingham Malaysia",
+      "short_name": "Nottingham",
+      "slug": "nottingham-malaysia",
+      "status": "pending"
+    },
+    {
+      "id": "reading-malaysia",
+      "name": "University of Reading Malaysia",
+      "short_name": "Reading",
+      "slug": "reading-malaysia",
+      "status": "pending"
+    },
+    {
+      "id": "heriot-watt-malaysia",
+      "name": "Heriot-Watt University Malaysia",
+      "short_name": "Heriot-Watt",
+      "slug": "heriot-watt-malaysia",
+      "status": "pending"
+    }
+  ]
+}
