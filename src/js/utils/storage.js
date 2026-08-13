@@ -1,4 +1,4 @@
-const Storage = {
+﻿const Storage = {
   // Schema version added to key to prevent breaking changes when structure updates
   getVersionedKey: function(type, universitySlug) {
     return `mst_${type}_${universitySlug}_v1`;
@@ -52,7 +52,7 @@ const Storage = {
 
   saveIntakeYear: function(universitySlug, year) {
     try {
-      localStorage.setItem(mst_intake_\, year);
+      localStorage.setItem(`mst_intake_${universitySlug}`, year);
     } catch (e) {
       console.warn('localStorage not available', e);
     }
@@ -60,7 +60,7 @@ const Storage = {
 
   loadIntakeYear: function(universitySlug) {
     try {
-      return localStorage.getItem(mst_intake_\);
+      return localStorage.getItem(`mst_intake_${universitySlug}`);
     } catch (e) {
       console.warn('localStorage not available', e);
       return null;
@@ -71,7 +71,6 @@ const Storage = {
 if (typeof module !== 'undefined') {
   module.exports = Storage;
 }
-
 
 if (typeof window !== 'undefined') {
   window.Storage = Storage;
