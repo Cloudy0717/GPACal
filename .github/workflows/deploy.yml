@@ -34,7 +34,7 @@ jobs:
           
       - name: Build Site
         env:
-          GA4_MEASUREMENT_ID: 'G-V5D6LRNN64'
+          GA4_MEASUREMENT_ID: 'G-D2R3734ZPJ'
         run: npm run build
         
       - name: Run Tests
@@ -42,7 +42,7 @@ jobs:
         
       - name: Build Site (Production)
         env:
-          GA4_MEASUREMENT_ID: 'G-V5D6LRNN64'
+          GA4_MEASUREMENT_ID: 'G-D2R3734ZPJ'
         run: npm run build
         
       - name: Setup Pages
