@@ -40,6 +40,11 @@ jobs:
       - name: Run Tests
         run: npm test
         
+      - name: Build Site (Production)
+        env:
+          GA4_MEASUREMENT_ID: 'G-V5D6LRNN64'
+        run: npm run build
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
