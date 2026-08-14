@@ -226,6 +226,11 @@ function build() {
   copyDir(path.join(SRC, 'css'), path.join(DIST, 'css'));
   copyDir(path.join(SRC, 'assets'), path.join(DIST, 'assets'));
   copyDir(path.join(SRC, 'js'), path.join(DIST, 'js'));
+
+  if (fs.existsSync(path.join(ROOT, 'google4d56b8e2f6526595.html'))) {
+    fs.copyFileSync(path.join(ROOT, 'google4d56b8e2f6526595.html'), path.join(DIST, 'google4d56b8e2f6526595.html'));
+  }
+
   if (!GA4_MEASUREMENT_ID) {
     if (fs.existsSync(path.join(DIST, 'js', 'analytics.js'))) fs.unlinkSync(path.join(DIST, 'js', 'analytics.js'));
   }
